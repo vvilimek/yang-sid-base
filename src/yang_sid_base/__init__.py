@@ -2,6 +2,7 @@
 #
 # SPDX-License-Identifier: LGPL-3.0-or-later
 
-from .lib import SID, AbsoluteSID, RelativeSID, check_sid
+from .lib import SID, AbsoluteSID, RelativeSID
 
-__all__ = ("SID", "AbsoluteSID", "RelativeSID", "check_sid")
+__all__ = ("SID", "AbsoluteSID", "RelativeSID")
+
