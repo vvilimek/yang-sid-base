@@ -40,7 +40,19 @@ class SID(int):
             raise TypeError
         return RelativeSID(int(self) - int(other))
 
+    def to_int(self) -> int:
+        return int(self)
+
+    def __cbor__(self) -> int:
+        return self.to_int()
+
 class RelativeSID(int):
     def __new__(cls, relative: int) -> Self:
         return super().__new__(cls, relative)
+
+    def to_int(self) -> int:
+        return int(self)
+
+    def __cbor__(self) -> int:
+        return self.to_int()
 
