@@ -99,3 +99,17 @@ def test_arit():
     with pytest.raises(TypeError):
         r16 = rel - sid.SID(3)
 
+
+def test_cont():
+    l1 = [sid.SID(1), sid.SID(2)]
+    l2 = [sid.RelativeSID(3), sid.RelativeSID(4)]
+    l3 = [sid.SID(1), sid.SID(2), sid.RelativeSID(3), sid.RelativeSID(4)]
+
+    l1 = (sid.SID(1), sid.SID(2))
+    l2 = (sid.RelativeSID(3), sid.RelativeSID(4))
+    l3 = (sid.SID(1), sid.SID(2), sid.RelativeSID(3), sid.RelativeSID(4))
+
+    # test __hash__
+    d1 = {sid.SID(1): "value", sid.SID(2): "other"}
+    d2 = {sid.RelativeSID(3): "rel", sid.RelativeSID(4): "ative"}
+    d3 = {sid.SID(1): "value", sid.SID(2): "other", sid.RelativeSID(3): "rel", sid.RelativeSID(4): "ative"}

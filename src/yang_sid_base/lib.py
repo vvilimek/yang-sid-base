@@ -96,6 +96,9 @@ class SID(int):
     def __cbor__(self) -> int:
         return int(self)
 
+    def __hash__(self) -> int:
+        return super().__hash__()
+
 class RelativeSID(int):
     def __new__(cls, relative: int) -> Self:
         return super().__new__(cls, relative)
@@ -162,4 +165,10 @@ class RelativeSID(int):
 
     def __cbor__(self) -> int:
         return int(self)
+
+    def __hash__(self) -> int:
+        # TODO wouldn't SID(2) and RelativeSID(2) hash to same value?
+        # Is this a problem? We may utilize that SID is "only" 63-bit
+        # and hash the RelativeSID like (2**63+int(self))
+        return super().__hash__()
 
