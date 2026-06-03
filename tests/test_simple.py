@@ -113,3 +113,8 @@ def test_cont():
     d1 = {sid.SID(1): "value", sid.SID(2): "other"}
     d2 = {sid.RelativeSID(3): "rel", sid.RelativeSID(4): "ative"}
     d3 = {sid.SID(1): "value", sid.SID(2): "other", sid.RelativeSID(3): "rel", sid.RelativeSID(4): "ative"}
+
+    s1 = set((sid.SID(1), sid.SID(2)))
+    s2 = set((sid.RelativeSID(3), sid.RelativeSID(4)))
+    s3 = set((sid.SID(1), sid.SID(2), sid.RelativeSID(3), sid.RelativeSID(4)))
+
